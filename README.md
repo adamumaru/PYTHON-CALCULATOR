@@ -1,26 +1,25 @@
-# Main program
-print("Select operation:")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
+# Basic Calculator Program
 
-choice = input("Enter choice (1/2/3/4): ")
+# Ask the user for input
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+operation = input("Enter an operation (+, -, *, /): ")
 
-try:
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
-
-    if choice == '1':
-        print("Result:", add(num1, num2))
-    elif choice == '2':
-        print("Result:", subtract(num1, num2))
-    elif choice == '3':
-        print("Result:", multiply(num1, num2))
-    elif choice == '4':
-        print("Result:", divide(num1, num2))
+# Perform the operation
+if operation == '+':
+    result = num1 + num2
+    print(f"{num1} + {num2} = {result}")
+elif operation == '-':
+    result = num1 - num2
+    print(f"{num1} - {num2} = {result}")
+elif operation == '*':
+    result = num1 * num2
+    print(f"{num1} * {num2} = {result}")
+elif operation == '/':
+    if num2 == 0:
+        print("Error: Division by zero is not allowed.")
     else:
-        print("Invalid input")
-except ValueError:
-    print("Error: Please enter valid numbers.")
-
+        result = num1 / num2
+        print(f"{num1} / {num2} = {result}")
+else:
+    print("Invalid operation. Please enter one of +, -, *, /.")
